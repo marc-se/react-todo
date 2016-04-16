@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <title>Get it done!</title>
+    <!-- Not present in the tutorial. Just for basic styling. -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.16/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicon/manifest.json">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+      body {
+        background-color: #44BDB2;
+      }
+      h1 {
+        color: #fff;
+      }
+      h2 {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+      }
+      ul li {
+        padding: 10px;
+        font-size: 16px;
+        color: #f9f9f9;
+        font-weight: 300;
+        letter-spacing: 1px;
+        background: #3EB3A8;
+        margin-top: 8px;
+        list-style: none;
+      }
+      ul li > button {
+        float: right;
+        background: transparent;
+        border: none;
+        position: relative !important;
+        top: 3px !important;
+        left: 0 !important;
+      }
+      .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      .animated.flipOutX,
+      .animated.flipOutY,
+      .animated.bounceIn,
+      .animated.bounceOut {
+        -webkit-animation-duration: .75s;
+        animation-duration: .75s;
+      }
+      @-webkit-keyframes bounce {
+        from, 20%, 53%, 80%, to {
+          -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        }
+
+        40%, 43% {
+          -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
+        }
+
+        70% {
+          -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          -webkit-transform: translate3d(0, -15px, 0);
+          transform: translate3d(0, -15px, 0);
+        }
+
+        90% {
+          -webkit-transform: translate3d(0,-4px,0);
+          transform: translate3d(0,-4px,0);
+        }
+      }
+
+      @keyframes bounce {
+        from, 20%, 53%, 80%, to {
+          -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
+        }
+
+        40%, 43% {
+          -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          -webkit-transform: translate3d(0, -30px, 0);
+          transform: translate3d(0, -30px, 0);
+        }
+
+        70% {
+          -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+          -webkit-transform: translate3d(0, -15px, 0);
+          transform: translate3d(0, -15px, 0);
+        }
+
+        90% {
+          -webkit-transform: translate3d(0,-4px,0);
+          transform: translate3d(0,-4px,0);
+        }
+      }
+      .bounce {
+        -webkit-animation-name: bounce;
+        animation-name: bounce;
+        -webkit-transform-origin: center bottom;
+        transform-origin: center bottom;
+      }
+      @-webkit-keyframes bounceIn {
+        from, 20%, 40%, 60%, 80%, to {
+          -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        20% {
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        40% {
+          -webkit-transform: scale3d(.9, .9, .9);
+          transform: scale3d(.9, .9, .9);
+        }
+
+        60% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.03, 1.03, 1.03);
+          transform: scale3d(1.03, 1.03, 1.03);
+        }
+
+        80% {
+          -webkit-transform: scale3d(.97, .97, .97);
+          transform: scale3d(.97, .97, .97);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+
+      @keyframes bounceIn {
+        from, 20%, 40%, 60%, 80%, to {
+          -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+          animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        0% {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+
+        20% {
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        40% {
+          -webkit-transform: scale3d(.9, .9, .9);
+          transform: scale3d(.9, .9, .9);
+        }
+
+        60% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.03, 1.03, 1.03);
+          transform: scale3d(1.03, 1.03, 1.03);
+        }
+
+        80% {
+          -webkit-transform: scale3d(.97, .97, .97);
+          transform: scale3d(.97, .97, .97);
+        }
+
+        to {
+          opacity: 1;
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+        }
+      }
+      .bounceIn {
+        -webkit-animation-name: bounceIn;
+        animation-name: bounceIn;
+      }
+      @-webkit-keyframes bounceOut {
+        20% {
+          -webkit-transform: scale3d(.9, .9, .9);
+          transform: scale3d(.9, .9, .9);
+        }
+
+        50%, 55% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        to {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+      }
+      @keyframes bounceOut {
+        20% {
+          -webkit-transform: scale3d(.9, .9, .9);
+          transform: scale3d(.9, .9, .9);
+        }
+
+        50%, 55% {
+          opacity: 1;
+          -webkit-transform: scale3d(1.1, 1.1, 1.1);
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        to {
+          opacity: 0;
+          -webkit-transform: scale3d(.3, .3, .3);
+          transform: scale3d(.3, .3, .3);
+        }
+      }
+      .bounceOut {
+        -webkit-animation-name: bounceOut;
+        animation-name: bounceOut;
+      }
+      #app {
+        height: 100vh;
+        min-height: 100%;
+      }
+      .list-wrapper {
+        position: relative;
+        top: 85px;
+        left: 0;
+      }
+      .app-icon-wrapper {
+        /*border-bottom: 2px solid white;*/
+        padding-bottom: 15px;
+      }
+      .app-icon-circle {
+        background: #3EB3A8;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+      }
+      .app-icon-circle .glyphicon {
+        position: relative;
+        top: 13px;
+        left: 0;
+      }
+      .badge-pos {
+        position: absolute;
+        top: 15px;
+        left: 51.5%;
+        z-index: 2;
+      }
+      .app-icon {
+        font-size: 60px;
+        color: #fff;
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .todo-list {
+        margin-top: 45px;
+        margin-bottom: 25px;
+        /*transform: translate(-55%,0);*/
+        position: relative;
+        top: 0;
+        left: -24px;
+      }
+      .arrow-box {
+        width: 75%;
+        margin: 0 auto;
+        position: relative;
+        background: #44BDB2;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 25px;
+      }
+      .extra-margin {
+        margin-bottom: 40px;
+      }
+      .arrow-box:after, .arrow-box:before {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      .arrow-box:after {
+        border-color: rgba(68, 189, 178, 0);
+        border-top-color: #44BDB2;
+        border-width: 15px;
+        margin-left: -15px;
+      }
+      .arrow-box:before {
+        border-color: rgba(255, 255, 255, 0);
+        border-top-color: #ffffff;
+        border-width: 18px;
+        margin-left: -18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel" src="js/todo.js"></script>
+  </body>
+</html>
