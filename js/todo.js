@@ -17,10 +17,8 @@ function getIndexForKey(arr, key) {
     }
 }
 
-function updateTitle(count) {
-    var items = count;
-        console.log(items);
-        document.title = items > 1 ? items + " items to do - Get it done!" : items < 1 ? "Nothing to do ¯\\_(ツ)_/¯" : items + " item to do - Get it done!";
+function updateTitle(items) {
+    document.title = items > 1 ? items + " items to do - Get it done!" : items < 1 ? "Nothing to do ¯\\_(ツ)_/¯" : items + " item to do - Get it done!";
 }
 
 if(typeof(Storage) !== "undefined") {
