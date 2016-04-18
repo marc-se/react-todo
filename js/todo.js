@@ -63,6 +63,16 @@ var TodoCount = React.createClass({
 });
 
 var TodoItem = React.createClass({
+    compontentDidMount: function() {
+        var items = this.props.data.length;
+        console.log(items);
+        document.title = items > 1 ? items + " items to do - Get it done!" : items < 1 ? "Nothing to do ¯\\_(ツ)_/¯" : items + " item to do - Get it done!";
+    },
+    componentDidUpdate: function() {
+        var items = this.props.data.length;
+        console.log(items);
+        document.title = items > 1 ? items + " items to do - Get it done!" : items < 1 ? "Nothing to do ¯\\_(ツ)_/¯" : items + " item to do - Get it done!";
+    },
     addItem: function(item) {
         var hash = item.text.hashCode();
         var todoItems = this.props.data;
